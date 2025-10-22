@@ -1,0 +1,99 @@
+# RouterLLM Configuration File
+
+# Model Configuration
+models:
+  router:
+    model_name: "bert-base-uncased"
+    num_classes: 4
+    max_length: 512
+
+  llms:
+    # Large models for complex tasks (13B-17B parameters)
+    - name: "codellama_13b"
+      model_id: "codellama/CodeLlama-13b-Instruct-hf"
+      max_memory: "24GB"
+      use_4bit: true
+      category: 0  # Heavy/Complex tasks
+      complexity_tier: "heavy"
+      parameters: "13B"
+
+    # Medium models for intermediate tasks (7B parameters)
+    - name: "mistral_7b"
+      model_id: "mistralai/Mistral-7B-Instruct-v0.3"
+      max_memory: "14GB"
+      use_4bit: true
+      category: 1  # Medium complexity tasks
+      complexity_tier: "medium"
+      parameters: "7B"
+
+    # Medium models backup (7B parameters)
+    - name: "codellama_7b"
+      model_id: "codellama/CodeLlama-7b-Instruct-hf"
+      max_memory: "14GB"
+      use_4bit: true
+      category: 2  # General purpose
+      complexity_tier: "medium"
+      parameters: "7B"
+
+    # Small models for simple tasks (1B-3B parameters)
+    - name: "phi3_mini"
+      model_id: "microsoft/Phi-3-mini-4k-instruct"
+      max_memory: "8GB"
+      use_4bit: false
+      category: 3  # Lightweight tasks
+      complexity_tier: "light"
+      parameters: "3.8B"
+
+    # StarCoder2-15B for direct comparison (15B parameters, specialized for coding)
+    - name: "starcoder2_15b"
+      model_id: "bigcode/starcoder2-15b"
+      max_memory: "16GB"
+      use_4bit: true  # Enable 4-bit quantization for 15B model
+      category: 4  # Large direct model
+      complexity_tier: "heavy"
+      parameters: "15B"
+
+  # Configuration for complexity-based routers
+  complexity_routers:
+    nvidia:
+      model_name: "nvidia/prompt-task-and-complexity-classifier"
+      thresholds:
+        light: 0.33    # 0.0-0.33 -> phi3_mini (3.8B)
+        medium: 0.66   # 0.33-0.66 -> mistral_7b/codellama_7b (7B)
+        heavy: 1.0     # 0.66-1.0 -> codellama_13b (13B)
+
+    graham:
+      model_name: "grahamaco/question-complexity-classifier"
+      mapping:
+        simple: "phi3_mini"      # Simple -> 3.8B model
+        complex: "codellama_13b" # Complex -> 13B model
+
+# Training Configuration
+training:
+  batch_size: 16
+  learning_rate: 2e-5
+  num_epochs: 3
+  warmup_steps: 100
+  weight_decay: 0.01
+  gradient_accumulation_steps: 1
+
+# Carbon Tracking Configuration
+carbon_tracking:
+  enabled: true
+  country_iso_code: "USA"
+  project_name: "routerllm"
+  output_dir: "./logs/carbon"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  log_dir: "./logs"
+  log_file: "routerllm.log"
+  carbon_log_file: "carbon_emissions.log"
+
+# System Configuration
+system:
+  device: "auto"  # auto, cuda, cpu
+  cache_dir: "./cache"
+  max_gpu_memory: "auto"
+  dtype: "auto"

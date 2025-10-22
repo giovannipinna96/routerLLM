@@ -1,0 +1,90 @@
+# RouterLLM Test Configuration File (Smaller Models for Quick Testing)
+
+# Model Configuration
+models:
+  router:
+    model_name: "bert-base-uncased"
+    num_classes: 4
+    max_length: 512
+
+  llms:
+    # Large models for complex tasks (using smaller models for testing)
+    - name: "codellama_13b"
+      model_id: "microsoft/DialoGPT-small"  # Small test model
+      max_memory: "4GB"
+      use_4bit: false
+      category: 0  # Heavy/Complex tasks
+      complexity_tier: "heavy"
+      parameters: "117M"
+
+    # Medium models for intermediate tasks
+    - name: "mistral_7b"
+      model_id: "microsoft/DialoGPT-small"  # Small test model
+      max_memory: "4GB"
+      use_4bit: false
+      category: 1  # Medium complexity tasks
+      complexity_tier: "medium"
+      parameters: "117M"
+
+    # Medium models backup
+    - name: "codellama_7b"
+      model_id: "microsoft/DialoGPT-small"  # Small test model
+      max_memory: "4GB"
+      use_4bit: false
+      category: 2  # General purpose
+      complexity_tier: "medium"
+      parameters: "117M"
+
+    # Small models for simple tasks
+    - name: "phi3_mini"
+      model_id: "microsoft/DialoGPT-small"  # Small test model
+      max_memory: "4GB"
+      use_4bit: false
+      category: 3  # Lightweight tasks
+      complexity_tier: "light"
+      parameters: "117M"
+
+  # Configuration for complexity-based routers
+  complexity_routers:
+    nvidia:
+      model_name: "nvidia/prompt-task-and-complexity-classifier"
+      thresholds:
+        light: 0.33    # 0.0-0.33 -> phi3_mini
+        medium: 0.66   # 0.33-0.66 -> mistral_7b/codellama_7b
+        heavy: 1.0     # 0.66-1.0 -> codellama_13b
+
+    graham:
+      model_name: "grahamaco/question-complexity-classifier"
+      mapping:
+        simple: "phi3_mini"      # Simple -> Small model
+        complex: "codellama_13b" # Complex -> Large model
+
+# Training Configuration
+training:
+  batch_size: 16
+  learning_rate: 2e-5
+  num_epochs: 3
+  warmup_steps: 100
+  weight_decay: 0.01
+  gradient_accumulation_steps: 1
+
+# Carbon Tracking Configuration
+carbon_tracking:
+  enabled: true
+  country_iso_code: "USA"
+  project_name: "routerllm"
+  output_dir: "./logs/carbon"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  log_dir: "./logs"
+  log_file: "routerllm.log"
+  carbon_log_file: "carbon_emissions.log"
+
+# System Configuration
+system:
+  device: "auto"  # auto, cuda, cpu
+  cache_dir: "./cache"
+  max_gpu_memory: "auto"
+  dtype: "auto"
