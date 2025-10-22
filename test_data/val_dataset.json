@@ -1,0 +1,182 @@
+{
+  "texts": [
+    "Create a Italian program that check if a number is prime",
+    "Implement a stack in Spanish",
+    "Could you what are the key points about renewable energy?",
+    "It's urgent: please how does cryptocurrency mining work?",
+    "Can you create engaging content about sustainable development",
+    "How does photosynthesis work?",
+    "Create a article that explains photosynthesis"
+  ],
+  "labels": [
+    0,
+    0,
+    3,
+    2,
+    1,
+    2,
+    1
+  ],
+  "size": 7,
+  "metadata": {
+    "categories": {
+      "0": {
+        "name": "code_generation",
+        "model": "code_llama_7b",
+        "keywords": [
+          "write a function",
+          "implement",
+          "code",
+          "programming",
+          "algorithm",
+          "debug",
+          "fix the bug",
+          "create a class",
+          "write a script",
+          "python",
+          "javascript",
+          "java",
+          "c++",
+          "sql",
+          "api",
+          "function",
+          "method",
+          "loop",
+          "condition",
+          "variable",
+          "array",
+          "list",
+          "dictionary"
+        ],
+        "templates": [
+          "Write a {language} function that {task}",
+          "Implement an algorithm to {task}",
+          "Create a {language} script that {task}",
+          "How do I {task} in {language}?",
+          "Debug this {language} code: {code_snippet}",
+          "Write a function to {task} using {approach}",
+          "Implement a {data_structure} in {language}",
+          "Create a {language} program that {task}",
+          "Fix the bug in this code: {code_snippet}",
+          "Write unit tests for {function_name}"
+        ]
+      },
+      "1": {
+        "name": "text_generation",
+        "model": "phi3_mini",
+        "keywords": [
+          "write a story",
+          "creative writing",
+          "article",
+          "essay",
+          "blog post",
+          "content",
+          "narrative",
+          "fiction",
+          "non-fiction",
+          "poem",
+          "letter",
+          "email",
+          "report",
+          "summary",
+          "description",
+          "review",
+          "opinion"
+        ],
+        "templates": [
+          "Write a {text_type} about {topic}",
+          "Create a {length} {text_type} on {topic}",
+          "Generate content for a {text_type} about {topic}",
+          "Write a creative {text_type} involving {elements}",
+          "Compose a {style} {text_type} about {topic}",
+          "Create a {text_type} that explains {concept}",
+          "Write a persuasive {text_type} about {topic}",
+          "Generate a {text_type} for {audience} about {topic}",
+          "Create engaging content about {topic}",
+          "Write a detailed {text_type} covering {aspects}"
+        ]
+      },
+      "2": {
+        "name": "general_purpose",
+        "model": "mistral_7b",
+        "keywords": [
+          "explain",
+          "analyze",
+          "compare",
+          "discuss",
+          "what is",
+          "how does",
+          "why",
+          "when",
+          "where",
+          "definition",
+          "difference",
+          "advantages",
+          "disadvantages",
+          "pros and cons",
+          "impact",
+          "effect",
+          "cause",
+          "solution",
+          "recommendation",
+          "advice",
+          "guidance",
+          "help"
+        ],
+        "templates": [
+          "Explain {concept} in simple terms",
+          "What are the main differences between {item1} and {item2}?",
+          "Analyze the impact of {factor} on {domain}",
+          "How does {process} work?",
+          "What are the advantages and disadvantages of {topic}?",
+          "Compare {option1} and {option2} for {use_case}",
+          "Provide a comprehensive overview of {topic}",
+          "What factors should I consider when {decision}?",
+          "Explain the relationship between {concept1} and {concept2}",
+          "How can I improve {skill} in {domain}?"
+        ]
+      },
+      "3": {
+        "name": "lightweight_tasks",
+        "model": "tiny_llama",
+        "keywords": [
+          "translate",
+          "convert",
+          "format",
+          "list",
+          "simple",
+          "quick",
+          "basic",
+          "elementary",
+          "straightforward",
+          "easy",
+          "simple task",
+          "brief",
+          "short",
+          "minimal",
+          "fast",
+          "simple question"
+        ],
+        "templates": [
+          "List the main {items} of {topic}",
+          "What is {simple_concept}?",
+          "Translate '{text}' to {language}",
+          "Convert {value} from {unit1} to {unit2}",
+          "Give me a brief overview of {topic}",
+          "What are the key points about {topic}?",
+          "Provide a simple explanation of {concept}",
+          "List {number} {items} for {purpose}",
+          "What is the definition of {term}?",
+          "Give me quick facts about {topic}"
+        ]
+      }
+    },
+    "seed": 42,
+    "class_distribution": {
+      "0": 2,
+      "3": 1,
+      "2": 2,
+      "1": 2
+    }
+  }
+}

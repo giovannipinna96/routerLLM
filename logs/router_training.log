@@ -1,0 +1,18 @@
+2025-09-21 16:07:41,456 - router_trainer - INFO - logger:60 - Logger initialized. Log file: ./logs/router_training.log
+2025-09-21 16:07:41,456 - router_trainer - INFO - dataset_generator:217 - DatasetGenerator initialized with 4 categories
+2025-09-21 16:07:41,458 - router_trainer - INFO - dataset_generator:436 - Dataset loaded from ./test_data/train_dataset.json - 35 samples
+2025-09-21 16:07:41,459 - router_trainer - INFO - dataset_generator:436 - Dataset loaded from ./test_data/val_dataset.json - 7 samples
+2025-09-21 16:07:41,559 - router_trainer - INFO - router:91 - BERTRouter initialized with 4 classes on cuda
+2025-09-21 16:07:49,020 - router_trainer - INFO - router:108 - BERT model built successfully: bert-base-uncased
+2025-09-21 16:07:49,023 - router_trainer - INFO - trainer:164 - Training setup complete - Total steps: 5
+2025-09-21 16:07:49,023 - router_trainer - INFO - trainer:124 - RouterTrainer initialized - Train samples: 35
+2025-09-21 16:07:49,023 - router_trainer - INFO - trainer:126 - Validation samples: 7
+2025-09-21 16:07:49,023 - router_trainer - INFO - trainer:173 - Starting training...
+2025-09-21 16:07:49,023 - router_trainer - INFO - trainer:186 - Epoch 1/1
+2025-09-21 16:07:50,341 - router_trainer - INFO - trainer:193 - Train Loss: 1.3611, Train Accuracy: 0.2857
+2025-09-21 16:07:50,507 - router_trainer - INFO - trainer:201 - Val Loss: 1.3938, Val Accuracy: 0.1429
+2025-09-21 16:07:53,786 - router_trainer - INFO - router:159 - Model saved to ./test_models/best_router_epoch_1.pt
+2025-09-21 16:07:53,788 - router_trainer - INFO - trainer:213 - New best model saved: ./test_models/best_router_epoch_1.pt
+2025-09-21 16:07:57,063 - router_trainer - INFO - router:159 - Model saved to ./test_models/router_epoch_1.pt
+2025-09-21 16:07:57,063 - router_trainer - INFO - trainer:224 - Training completed!
+2025-09-21 16:07:57,063 - router_trainer - INFO - trainer:226 - Best model: ./test_models/best_router_epoch_1.pt (Val Accuracy: 0.1429)

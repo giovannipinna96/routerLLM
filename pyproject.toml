@@ -1,0 +1,32 @@
+[project]
+name = "routerllm"
+version = "0.1.0"
+description = "Intelligent LLM Router for optimizing accuracy/cost efficiency with carbon footprint tracking"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=2.0.0",
+    "torch>=2.0.0",
+    "transformers>=4.35.0",
+    "tokenizers>=0.15.0",
+    "datasets>=2.14.0",
+    "scikit-learn>=1.3.0",
+    "codecarbon>=2.3.0",
+    "accelerate>=0.24.0",
+    "bitsandbytes>=0.41.0",
+    "numpy>=1.24.0",
+    "tqdm>=4.65.0",
+    "pyyaml>=6.0",
+    "python-dotenv>=1.0.0",
+    "psutil>=5.9.0",
+    "nvidia-ml-py>=13.580.82",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.7.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+]

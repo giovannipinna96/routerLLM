@@ -1,0 +1,14 @@
+2025-09-21 16:00:23,899 - dataset_generator - INFO - logger:60 - Logger initialized. Log file: ./logs/dataset_generation.log
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:217 - DatasetGenerator initialized with 4 categories
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:325 - Generated dataset with 50 samples
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:337 - Class distribution:
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:341 -   Class 0 (code_generation): 13 samples (26.0%)
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:341 -   Class 1 (text_generation): 13 samples (26.0%)
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:341 -   Class 2 (general_purpose): 12 samples (24.0%)
+2025-09-21 16:00:23,900 - dataset_generator - INFO - dataset_generator:341 -   Class 3 (lightweight_tasks): 12 samples (24.0%)
+2025-09-21 16:00:23,917 - dataset_generator - INFO - dataset_generator:380 - Dataset split - Train: 35, Val: 7, Test: 8
+2025-09-21 16:00:23,920 - dataset_generator - INFO - dataset_generator:418 - Dataset saved to ./test_data/train_dataset.json
+2025-09-21 16:00:23,922 - dataset_generator - INFO - dataset_generator:418 - Dataset saved to ./test_data/val_dataset.json
+2025-09-21 16:00:23,927 - dataset_generator - INFO - dataset_generator:418 - Dataset saved to ./test_data/test_dataset.json
+2025-09-21 16:00:23,929 - dataset_generator - INFO - dataset_generator:418 - Dataset saved to ./test_data/full_dataset.json
+2025-09-21 16:00:23,929 - dataset_generator - INFO - dataset_generator:482 - Complete dataset saved to ./test_data
